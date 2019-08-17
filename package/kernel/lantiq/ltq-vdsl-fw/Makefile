@@ -22,21 +22,9 @@ define Package/ltq-vdsl-vr9-vectoring-fw-installer
   DEPENDS:=@TARGET_lantiq_xrx200 +kmod-ltq-vdsl-vr9
 endef
 
-define Build/Prepare
-	$(INSTALL_DIR) $(PKG_BUILD_DIR)
-	$(CP) ./src/* $(PKG_BUILD_DIR)
-endef
-
-define Build/Compile
-	$(TARGET_CONFIGURE_OPTS) \
-		CFLAGS="$(TARGET_CFLAGS)" \
-		LDFLAGS="$(TARGET_LDFLAGS)" \
-		$(MAKE) -C $(PKG_BUILD_DIR)
-endef
-
 define Package/ltq-vdsl-vr9-vectoring-fw-installer/install
-	$(INSTALL_DIR) $(1)/sbin
-	$(CP) $(PKG_BUILD_DIR)/w921v_fw_cutter $(PKG_BUILD_DIR)/vdsl_fw_install.sh $(1)/sbin/
+	$(INSTALL_DIR) $(1)/lib/firmware
+	$(CP) $(PKG_BUILD_DIR)/lantiq-vrx200-b.bin $(1)/lib/firmware
 endef
 
 $(eval $(call BuildPackage,ltq-vdsl-vr9-vectoring-fw-installer))

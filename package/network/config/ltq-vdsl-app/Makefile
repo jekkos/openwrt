@@ -58,6 +58,7 @@ CONFIGURE_ARGS += \
 	--enable-ifxos-library="-I$(STAGING_DIR)/usr/lib" \
 	--enable-add-appl-cflags="$(VDSL_APP_CFLAGS)"  \
 	--enable-debug \
+	--enable-cli \
 	--disable-dti \
 	--with-channels-per-line="1"
 

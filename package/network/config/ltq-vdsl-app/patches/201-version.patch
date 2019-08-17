@@ -1,0 +1,25 @@
+diff --git a/src/dsl_cpe_control.c b/src/dsl_cpe_control.c
+index 03420af..17923d3 100644
+--- a/src/dsl_cpe_control.c
++++ b/src/dsl_cpe_control.c
+@@ -6225,6 +6225,7 @@ DSL_int32_t DSL_CPE_DeviceInit (
+ #endif
+    DSL_int_t nDevice = 0;
+    const DSL_uint8_t G994VendorID[DSL_G997_LI_MAXLEN_VENDOR_ID] = {DSL_G994_VENDOR_ID};
++   const DSL_uint8_t SystemVendorID[DSL_G997_LI_MAXLEN_VENDOR_ID] = {DSL_SYSTEM_VENDOR_ID};
+ 
+    memset (&init, 0x00, sizeof (DSL_Init_t));
+ 
+@@ -6414,9 +6415,9 @@ DSL_int32_t DSL_CPE_DeviceInit (
+    inv.Auxiliary.nLength = 8;
+ #endif
+    /* $$ ND: this is for testing only --> */
+-   memcpy (&inv.SerialNumber, "01234567890123456789012345678901", 32);
+-   memcpy (&inv.SystemVendorID, G994VendorID, 8);
+-   memcpy (&inv.VersionNumber, "0123456789012345", 16);
++   memcpy (&inv.SerialNumber, "7CFF4DF35AD6 F!Box7490 113.07.01", 32);
++   memcpy (&inv.SystemVendorID, SystemVendorID, 8);
++   memcpy (&inv.VersionNumber, "1.100.136.15 A6\0", 16);
+    init.data.pInventory = &inv;
+    /* $$ <-- */
+ 

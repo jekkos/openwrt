@@ -1,0 +1,26 @@
+diff --git a/src/common/drv_dsl_cpe_api.c b/src/common/drv_dsl_cpe_api.c
+index 11cb00a..463c078 100644
+--- a/src/common/drv_dsl_cpe_api.c
++++ b/src/common/drv_dsl_cpe_api.c
+@@ -51,6 +51,7 @@ DSL_uint8_t g_XTSEposs[DSL_G997_NUM_XTSE_OCTETS] =
+ /* G994 Vendor ID */
+ static const DSL_uint8_t g_G994VendorID[DSL_G997_LI_MAXLEN_VENDOR_ID] = {DSL_G994_VENDOR_ID};
+ 
++static const DSL_uint8_t g_SystemVendorID[DSL_G997_LI_MAXLEN_VENDOR_ID] = {DSL_SYSTEM_VENDOR_ID};
+ /*
+    For a detailed description of the function, its arguments and return value
+    please refer to the description in the header file 'drv_dsl_cpe_intern.h'
+diff --git a/src/include/drv_dsl_cpe_api.h b/src/include/drv_dsl_cpe_api.h
+index c8de14d..307ce80 100644
+--- a/src/include/drv_dsl_cpe_api.h
++++ b/src/include/drv_dsl_cpe_api.h
+@@ -342,7 +342,8 @@ typedef struct DSL_Context DSL_Context_t;
+ #define MAX_INFO_STRING_LEN            32
+ 
+ /** G994 Vendor ID constant */
+-#define DSL_G994_VENDOR_ID 0xB5, 0x00, 0x49, 0x46, 0x54, 0x4E, 0x00, 0x00
++#define DSL_G994_VENDOR_ID 0xB5, 0x00, 0x49, 0x46, 0x54, 0x4E, 0x59, 0x14
++#define DSL_SYSTEM_VENDOR_ID 0x04, 0x00, 0x41, 0x56, 0x4D, 0x00, 0x00, 0x00
+ 
+ /** @} DRV_DSL_CPE_COMMON */
+ 
