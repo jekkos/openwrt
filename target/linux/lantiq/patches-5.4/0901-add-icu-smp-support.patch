@@ -1,0 +1,10 @@
+--- a/arch/mips/kernel/smp-mt.c	2020-03-05 16:43:52.000000000 +0100
++++ b/arch/mips/kernel/smp-mt.c	2020-03-20 13:32:33.321068703 +0100
+@@ -114,6 +114,8 @@
+ 					 STATUSF_IP6 | STATUSF_IP7);
+ 	else
+ 		change_c0_status(ST0_IM, STATUSF_IP0 | STATUSF_IP1 |
++					 STATUSF_IP2 | STATUSF_IP3 |
++					 STATUSF_IP4 | STATUSF_IP5 |
+ 					 STATUSF_IP6 | STATUSF_IP7);
+ }
