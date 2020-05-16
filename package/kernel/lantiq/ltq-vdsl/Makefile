@@ -61,6 +61,8 @@ CONFIGURE_ARGS += --enable-kernel-include="$(LINUX_DIR)/include" \
 	--enable-linux-26 \
 	--enable-kernelbuild="$(LINUX_DIR)" \
 	--enable-debug-prints=no \
+	--enable-dsl-pm-retx-counters \
+	--enable-dsl-pm-retx-thresholds  
 	ARCH=mips
 
 CONFIGURE_ARGS += --enable-model=full

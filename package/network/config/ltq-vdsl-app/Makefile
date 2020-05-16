@@ -68,7 +68,9 @@ CONFIGURE_ARGS += \
 CONFIGURE_ARGS += \
 	--enable-model=typical \
 	--enable-dsl-pm-showtime \
-	--disable-dsl-ceoc
+	--disable-dsl-ceoc \
+	--enable-dsl-pm-retx-counters \
+	--enable-dsl-pm-retx-thresholds
 #CONFIGURE_ARGS += --enable-model=debug
 
 define Package/ltq-vdsl-app/install
