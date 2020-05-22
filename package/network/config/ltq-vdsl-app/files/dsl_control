@@ -99,6 +99,9 @@ tone_vdsl_bv="0x5" # B43 + V43
 autoboot_script() {
     echo "[WaitForConfiguration]={
 locs 0 $1
+g997racg 1 0
+lfcs 1 0 1 1 1 0 0
+g997lis 04 00 41 56 4D 00 00 00 31 2e 31 30 30 2e 31 33 36 2e 31 35 20 41 36 00 37 43 46 46 34 44 46 33 35 41 44 36 20 46 21 42 6f 78 37 34 39 30 20 31 31 33 2e 30 37 2e 30 31 31 32 33 34 34 33 32 31
 }
 
 [WaitForLinkActivate]={
