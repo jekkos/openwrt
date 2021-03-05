@@ -1,0 +1,49 @@
+--- a/src/dsl_cpe_cli_access.c
++++ b/src/dsl_cpe_cli_access.c
+@@ -4463,7 +4463,7 @@ DSL_CLI_LOCAL DSL_int_t DSL_CPE_CLI_G997
+          break;
+ #endif
+       default:
+-         DSL_CPE_FPrintf(out, "nReturn=-1 (interanl error)" DSL_CPE_CRLF);
++         DSL_CPE_FPrintf(out, "nReturn=-1 (internal error)" DSL_CPE_CRLF);
+          return 0;
+       }
+    }
+@@ -4473,12 +4473,17 @@ DSL_CLI_LOCAL DSL_int_t DSL_CPE_CLI_G997
+ #if (INCLUDE_DSL_CPE_API_VDSL_SUPPORT == 1)
+    if (DSL_CPE_CLI_CheckParamNumber(
+       pCommands,
+       nParamList[DSL_CPE_MAX_NE_INVENTORY_PARAM_LISTS - 2], DSL_CLI_MIN) == DSL_FALSE)
+    {
++       DSL_CPE_FPrintf(out, "nReturn=-1 (Min ");
++       DSL_CPE_FPrintf(out, "%d params allowed)" DSL_CPE_CRLF, nParamList[DSL_CPE_MAX_NE_INVENTORY_PARAM_LISTS - 2]);
++
+       return -1;
+    }
+    if (DSL_CPE_CLI_CheckParamNumber(pCommands, nParams, DSL_CLI_MAX) == DSL_FALSE)
+    {
++       DSL_CPE_FPrintf(out, "nReturn=-1 (Max " );
++       DSL_CPE_FPrintf(out, "%d params allowed)" DSL_CPE_CRLF, nParams);
+       return -1;
+    }
+ #else
+--- a/src/dsl_cpe_control.c
++++ b/src/dsl_cpe_control.c
+@@ -6763,8 +6763,6 @@ DSL_int_t dsl_cpe_daemon (
+    signal (SIGTERM, DSL_CPE_TerminationHandler);
+ #endif /* RTEMS*/
+ 
+-   ubus_init();
+-
+    /* Open DSL_CPE_MAX_DSL_ENTITIES devices*/
+    for (nDevice = 0; nDevice < DSL_CPE_MAX_DSL_ENTITIES; nDevice++)
+    {
+@@ -6889,6 +6887,8 @@ DSL_int_t dsl_cpe_daemon (
+          "ERROR - DSL CPE Driver vs Application version mismatch!" DSL_CPE_CRLF));
+    }
+ 
++   ubus_init();
++
+ #ifdef INCLUDE_DSL_BONDING
+    if (DSL_CPE_BND_Start(
+          pCtrlCtx, pCtrlCtx->fd[0] ) < DSL_SUCCESS)
