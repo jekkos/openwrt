@@ -27,23 +27,3 @@
        return -1;
     }
  #else
---- a/src/dsl_cpe_control.c
-+++ b/src/dsl_cpe_control.c
-@@ -6763,8 +6763,6 @@ DSL_int_t dsl_cpe_daemon (
-    signal (SIGTERM, DSL_CPE_TerminationHandler);
- #endif /* RTEMS*/
- 
--   ubus_init();
--
-    /* Open DSL_CPE_MAX_DSL_ENTITIES devices*/
-    for (nDevice = 0; nDevice < DSL_CPE_MAX_DSL_ENTITIES; nDevice++)
-    {
-@@ -6889,6 +6887,8 @@ DSL_int_t dsl_cpe_daemon (
-          "ERROR - DSL CPE Driver vs Application version mismatch!" DSL_CPE_CRLF));
-    }
- 
-+   ubus_init();
-+
- #ifdef INCLUDE_DSL_BONDING
-    if (DSL_CPE_BND_Start(
-          pCtrlCtx, pCtrlCtx->fd[0] ) < DSL_SUCCESS)
